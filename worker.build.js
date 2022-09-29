@@ -1,5 +1,6 @@
 const { build } = require('esbuild');
 const { NodeModulesPolyfillPlugin } = require('@esbuild-plugins/node-modules-polyfill');
+const { NodeGlobalsPolyfillPlugin } = require('@esbuild-plugins/node-globals-polyfill');
 
 const isProd = process.env.NODE_ENV === 'production';
 
@@ -10,14 +11,9 @@ build({
   minify: isProd,
   outdir: 'build',
   plugins: [
-    // issue: ReferenceError: "Buffer" is not defined
-    // workaround: Polyfill node module by NodeModulesPolyfillPlugin.
-    NodeModulesPolyfillPlugin({
+    NodeModulesPolyfillPlugin(),
+    NodeGlobalsPolyfillPlugin({
       // buffer: true,
-      // os: true,
-      // zlib: true,
-      // https: true,
-      // crypto: true,
     }),
   ],
 })
