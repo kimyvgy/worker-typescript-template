@@ -2,7 +2,7 @@
   "name": "miniflare-typescript-esbuild",
   "main": "./build/index.js",
   "scripts": {
-    "build": "esbuild --bundle --sourcemap --outdir=build ./src/index.ts",
+    "build": "node worker.build.js",
     "dev": "miniflare --watch --debug --host 0.0.0.0 --live-reload",
     "deploy": "wrangler publish"
   },
@@ -14,5 +14,8 @@
   },
   "engines": {
     "node": ">=16"
+  },
+  "dependencies": {
+    "@esbuild-plugins/node-modules-polyfill": "^0.1.4"
   }
 }
