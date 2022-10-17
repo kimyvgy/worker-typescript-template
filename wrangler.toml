@@ -1,14 +1,13 @@
-name = "miniflare-typescript-esbuild"
-type = "javascript"
-account_id = ""
+name = "worker-typescript-local"
+main = "build/index.js"
 workers_dev = true
-route = ""
-zone_id = ""
-kv_namespaces = [
-  { binding = "counter", id = "", preview_id = "" },
-]
+compatibility_date = "2022-10-17"
 
 [build]
 command = "npm run build"
-[build.upload]
-format = "service-worker"
+
+[env.production]
+name = "worker-typescript"
+[[env.production.kv_namespaces]]
+binding = "COUNTER"
+id = "3f04be9cee4445d29a5a331fee98e78b"

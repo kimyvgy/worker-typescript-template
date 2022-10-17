@@ -20,8 +20,8 @@ Further documentation for Wrangler can be found [here](https://developers.cloudf
 Start your dev server with following commands:
 
 ```sh
-npm install
-npm run dev
+yarn install
+yarn dev
 ```
 
 Open up [http://0.0.0.0:8787](http://0.0.0.0:8787) and you should be ready to go!
@@ -34,4 +34,17 @@ Once that's done, you should be able to deploy your app:
 
 ```sh
 npm run deploy
+```
+
+Please change KV Namespace's id in `wrangler.toml` before deploying. Create a new KV namespace:
+
+```sh
+wrangler kv:namespace create COUNTER --env production
+```
+
+```sh
+# output example
+✨ Success!
+Add the following to your configuration file in your kv_namespaces array under [env.production]:
+{ binding = "COUNTER", id = "3f04be9cee4445d29a5a331fee98e78b" }
 ```
