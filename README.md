@@ -1,3 +1,5 @@
+# Deprecated: Please use [the official template](https://github.com/cloudflare/workers-sdk/tree/main/templates/worker-typescript) instead.
+
 # 👷 `worker-typescript-template` Hello World
 
 A template for kick starting a Cloudflare worker project.
